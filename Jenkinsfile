@@ -3,7 +3,16 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'echo "Hello world!"'
+        parallel(
+          "build": {
+            sh 'echo "Hello world!"'
+            
+          },
+          "build1": {
+            echo 'hello world1'
+            
+          }
+        )
       }
     }
   }
